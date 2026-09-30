@@ -1,15 +1,14 @@
 const $profileButton = document.querySelector(".profile-button")
-const $sharingButton = document.querySelector(".sharing-button")
 const $profile = document.querySelector(".profile")
 const $sharePanel = document.querySelector(".share-panel")
+const $share=document.querySelector(".share")
 
 $profileButton.addEventListener("click",function(){
-    $profile.classList.toggle("hidden")
     $sharePanel.classList.toggle("hidden")
+    $profile.classList.toggle("dark")
+    $share.classList.toggle("dark-share")
+    $profileButton.classList.toggle("share-click")
 })
 
-$sharingButton.addEventListener("click",function(){
-    $profile.classList.toggle("hidden")
-    $sharePanel.classList.toggle("hidden")
-})
 
+    

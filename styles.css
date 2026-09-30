@@ -6,13 +6,17 @@
     --share-background:#48556a;
 
     --card-width:20rem;
+    --card-width-desktop:42.5rem;
 
     --padding:2rem;
-    --small-padding:0.5rem;
-    --medium-padding:1.0rem;
+    --extra-small-padding:0.5rem;
+    --small-padding:1rem;
+    --medium-padding:1.5rem;
     --margin-large:1.75rem;
+    --margin-small:1.0rem;
 
     --fs-heading:1rem;
+    --fs-heading-large:1.25rem;
     --fs-paragraph:0.8125rem;
     --letter-spacing:0.25rem;
 
@@ -22,7 +26,7 @@
     --main-img-height:11rem;
     --img-dimensions:2.5rem;
     --buttom-dimensions:2rem;
-    --icons-dimensions:1.25rem;
+    --icons-dimensions:1.35rem;
     --round-rad:1.5rem;
     --small-round-rad:0.5rem;
 
@@ -76,6 +80,10 @@ body{
 
 .profile{
     margin: var(--medium-padding) 0;
+    margin-block-end: 0;
+    padding-block-end: var(--small-padding);
+    padding-block-start: var(--small-padding);
+    margin-block-start: var(--margin-small);
 }
 
 .article-heading{
@@ -115,7 +123,7 @@ body{
 
 .profile-button{
     background-color: var(--background-color);
-    padding: var(--small-padding);
+    padding: var(--extra-small-padding);
     border-radius: var(--round-rad);
 }
 
@@ -130,15 +138,27 @@ body{
     color:var(--font-paragrah);
 }
 
+.bottom-panel{
+    position: relative;
+}
+
 .share-panel{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap:var(--flex-gap);
-    padding: var(--medium-padding) var(--padding);
+    padding: var(--medium-padding) var(--small-padding);
     background-color: var(--share-background);
     border-bottom-right-radius: var(--small-round-rad);
     border-bottom-left-radius: var(--small-round-rad);
+    position: absolute;
+    bottom:0.21rem;
+}
+
+.dark{
+    background-color: var(--font-heading);
+    border-radius: 0;
+    border-bottom-right-radius: var(--small-round-rad);
 }
 
 .share-msg{
@@ -155,16 +175,96 @@ body{
     height:var(--icons-dimensions);
 }
 
-.sharing-button{
+.share-click{
     background-color: var(--font-paragrah);
-    padding: var(--small-padding);
-    border-radius: var(--round-rad);
 }
 
-.share-dark{
+path.dark-share{
     fill:#ffffff;
+}
+
+.share{
+    fill:#6E8098;
 }
 
 .hidden{
     display: none;
+}
+
+@media screen and (min-width:899px){
+        .card{
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 1.5fr;
+            max-width: var(--card-width-desktop);
+        }
+
+    .profile{
+        margin-block-start: 0;
+        padding-block-start: 0;
+        padding-block-end: var(--medium-padding);
+    }
+
+    .image{
+        grid-area: 1/2/2/1;
+    }
+
+    .details{
+        grid-area: 1/3/2/2;
+    }
+
+    .image{
+        width: 100%;
+        height: 100%;
+        object-position: 0 0;
+    }
+
+    .article-heading{
+        font-size: var(--fs-heading-large);
+        margin-block-end: var(--margin-small);
+    }
+
+    .bottom-panel{
+        position: relative;
+    }
+
+    .share-panel{
+        width:13rem;
+        height:3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:var(--flex-gap);
+        padding: var(--medium-padding) var(--small-padding);
+        margin:var(--medium-padding) 0;
+        background-color: var(--share-background);
+        border-radius: var(--small-round-rad);
+        position: absolute;
+        left:63%;
+        bottom:110%;
+    }
+
+    .share-panel::after{
+        position:absolute;
+        content: "";
+        height:1.5rem;
+        width:1.5rem;
+        background-color: var(--font-heading);
+        rotate: 45deg;
+        right:45%;
+        top:70%;
+        z-index:1;
+    }
+
+    .icons{
+        z-index: 2;
+    }
+
+    .dark{
+        background-color: var(--card-background);
+    }
+
+    .hidden{
+        display: None;
+    }
 }
